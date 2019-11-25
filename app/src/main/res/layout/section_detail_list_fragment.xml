@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView
+    android:id="@+id/coverImage_medium3By2"
+    android:layout_width="400dp"
+    android:layout_height="240dp"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/abstract_tv"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/author_name"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/publish_date"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/webview_link"
+        android:clickable="true"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_color"
+        android:fontFamily="monospace"
+        />
+
+
+</LinearLayout>
