@@ -16,6 +16,9 @@ interface SectionDao {
     @Query("SELECT * FROM section_response WHERE section == :section")
     fun getSectionContentLive(section: String): LiveData<SectionResponse>
 
+    @Query("SELECT * FROM section_response WHERE _id == :position")
+    fun getSectionDetail(position: Int):LiveData<SectionResponse>
+
     @Insert
     fun insertAll(vararg section: SectionResponse)
 

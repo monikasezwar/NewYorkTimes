@@ -1,23 +1,23 @@
 package com.example.newyorktimes.network.converter
 
 import androidx.room.TypeConverter
-import com.example.newyorktimes.network.response.Multimedia
+import com.example.newyorktimes.network.response.SectionResponse
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class MultimediaConverter {
     @TypeConverter
-    fun stringToObject(data: String?): Multimedia? {
+    fun stringToObject(data: String?): List<SectionResponse.SectionResult.Multimedia> {
         if (data == null) {
-            return null
+            return emptyList()
         }
-        val listType = object : TypeToken<Multimedia>() {}.type
+        val listType = object : TypeToken<List<SectionResponse.SectionResult.Multimedia>>() {}.type
 
         return Gson().fromJson(data, listType)
     }
 
     @TypeConverter
-    fun objectToString(multimedia: Multimedia?): String {
+    fun objectToString(multimedia: List<SectionResponse.SectionResult.Multimedia>): String {
         return Gson().toJson(multimedia)
     }
 }

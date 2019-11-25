@@ -1,6 +1,5 @@
 package com.example.newyorktimes.view.homeview
 
-import android.app.Application
 import android.content.Intent
 import android.view.View
 import android.widget.AdapterView
@@ -9,19 +8,13 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.newyorktimes.R
 import com.example.newyorktimes.common.*
-import com.example.newyorktimes.network.RetrofitClientInstance
 import com.example.newyorktimes.network.response.SectionResponse
-import com.example.newyorktimes.network.service.SectionService
 import com.example.newyorktimes.database.viewmodel.SectionViewModel
 import com.example.newyorktimes.view.sectionListView.SectionListActivity
 import kotlinx.android.synthetic.main.list_fragment.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainView(var mFragment: MainFragment){
 
-    private lateinit var sectionResponse: SectionResponse
     private lateinit var mSectionViewModel: SectionViewModel
 
     fun onViewCreated(){
@@ -42,13 +35,14 @@ class MainView(var mFragment: MainFragment){
                     "Position :$position\nItem Value : $itemValue", Toast.LENGTH_LONG)
                     .show()
 
-                getSectionDetails(itemValue)
+                getSectionDetails(itemValue.toLowerCase())
+
             }
         }
     }
 
     fun getSectionDetails(sectionName: String){
-        val intent = Intent(AppApplication.instance, SectionListActivity::class.java)
+        val intent = Intent(mFragment.requireContext(), SectionListActivity::class.java)
         intent.putExtra(Constants.SECTION_NAME,sectionName)
         mFragment.requireActivity().startActivity(intent)
     }

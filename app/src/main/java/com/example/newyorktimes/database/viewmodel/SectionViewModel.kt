@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.example.newyorktimes.common.AppApplication
 import com.example.newyorktimes.database.repository.SectionRepository
 import com.example.newyorktimes.network.response.SectionResponse
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class SectionViewModel: ViewModel() {
     internal val sectionRepository: SectionRepository = SectionRepository(AppApplication.instance)
@@ -13,8 +15,8 @@ class SectionViewModel: ViewModel() {
         return sectionRepository.getSectionContentLive(sectionName)
     }
 
-    fun getRefreshData(){
-        sectionRepository.requestDataFromServer()
+    fun getRefreshData(sectionName: String){
+            sectionRepository.requestDataFromServer(sectionName)
     }
 
 }

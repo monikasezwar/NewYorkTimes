@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.view.Gravity
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 
 object Utils {
 

@@ -1,13 +1,14 @@
 package com.example.newyorktimes.network.service
 
-import com.example.newyorktimes.network.ServerAPIs.API_GET_SCIENCE_SECTION
 import com.example.newyorktimes.network.response.SectionResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface SectionService {
 
-    @GET(API_GET_SCIENCE_SECTION)
-    fun getSectionDetails(): Call<SectionResponse>
+    @GET("{section}.json")
+    fun getSectionDetails(@Path("section")section: String, @Query("api-key") key: String): Call<SectionResponse>
 
 }

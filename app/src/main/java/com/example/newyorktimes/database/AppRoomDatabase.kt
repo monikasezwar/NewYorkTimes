@@ -8,14 +8,12 @@ import androidx.room.Database
 import androidx.room.TypeConverters
 import com.example.newyorktimes.network.converter.MultimediaConverter
 import com.example.newyorktimes.network.converter.SectionResultConverter
-import com.example.newyorktimes.network.response.Multimedia
 import com.example.newyorktimes.network.response.SectionResponse
-import com.example.newyorktimes.network.response.SectionResult
 
 
-@Database(entities = [SectionResponse::class, SectionResult::class,Multimedia::class], version = 1, exportSchema = false)
+@Database(entities = [SectionResponse::class], version = 1, exportSchema = false)
 
-@TypeConverters(SectionResultConverter::class,MultimediaConverter::class)
+@TypeConverters(SectionResultConverter::class)
 
 abstract class AppRoomDatabase : RoomDatabase() {
 
